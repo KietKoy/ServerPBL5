@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-full h-screen font-['Poppins', 'san-serif'] overflow-hidden">
+    <!-- header -->
+    <div class="w-full h-[80px] bg-[#2B3467] text-white text-lg flex justify-end fixed top-0 left-0 z-10">
+        <!-- <div class="flex justify-center items-center gap-5 mr-5 cursor-pointer group/header relative">
+            <div class="text-5xl"><i class="fa-solid fa-circle-user"></i></div>
+            <div class="account_name">Nguyen Van A</div>
+            <div class="block absolute bottom-[-60px] bg-[#ccc] w-[200px] group-hover/header:block">
+                <div class=" text-black cursor-pointer signout ">Sign out</div>
+                <div class=" text-black cursor-pointer signout ">Change Infor</div>
+            </div>
+        </div> -->
+        <div class="flex justify-center items-center gap-5 mr-5 cursor-pointer group/header relative">
+            <div class="text-5xl"><i class="fa-solid fa-circle-user"></i></div>
+            <div class="account_name"></div>
+            <div class="w-[150px] h-[150px] rounded-md absolute bg-[#bad7e966] text-black flex-col justify-evenly bottom-[-150px] -left-4 hidden group-hover/header:flex">
+                <i class="fa-solid fa-caret-up absolute w-[10px] h-[10px] -top-[10px] left-16 text-[#F6F3F0]"></i>
+                <div class="hover:bg-[#2B3467] hover:text-white p-2">Change Infor</div>
+                <div class="hover:bg-[#2B3467] hover:text-white p-2 signout">Sign Out</div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-full mt-20 relative">
+        <!-- nav-bar -->
+        <div class="w-[10%] h-full bg-[#bad7e966] text-xl text-[#2B3467] flex flex-col fixed">
+            <div class="w-full hover:bg-[#bad7e9cc] p-5 font-semibold cursor-pointer" onclick="changeFrame(1)">Tickets</div>
+            <div class="w-full hover:bg-[#bad7e9cc] p-5 font-semibold cursor-pointer" onclick="changeFrame(2)">Parking</div>
+            <div class="w-full hover:bg-[#bad7e9cc] p-5 font-semibold cursor-pointer" onclick="changeFrame(3)">Statistics</div>
+        </div>
+        <!-- content -->
+        <iframe src="./tickets.html" class="w-[1370px] h-full absolute left-[150px] overflow-y-auto" id="iframe"></iframe>
+    </div>
+    <script>
+        let linkToTickets= "./tickets.html";
+        let linkToParking= "../General/parking.html";
+        let linkToStatistics = "./statistics.html";
+        const frame = document.querySelector("#iframe")
+        function changeFrame(index){
+            if(index == 1){
+                frame.src = linkToTickets;
+            }
+            else if(index == 2){
+                frame.src = linkToParking;
+            }
+            else if(index == 3){ 
+                frame.src = linkToStatistics;
+            }
+        }
+        
+    </script>
+    <script src="../JS/Account/signOut.js" type="module"></script>
+    <script src="../JS/Account/loadDataAccount.js" type="module"></script>
+    
+</body>
+
+</html>
